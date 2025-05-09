@@ -98,7 +98,7 @@ const AboutSection = () => {
             I&apos;m a final-year Computer Science student and full-stack web developer passionate about building responsive and user-friendly applications. I specialize in JavaScript, React, and Node.js, and have worked on several academic and personal projects using PostgreSQL and MongoDB. I&apos;m a fast learner, enjoy solving real-world problems, and love collaborating in team environments. Currently exploring cloud and DevOps to broaden my skillset.
           </p>
 
-          <div className="flex flex-row flex-wrap gap-2 justify-start mt-8">
+          <div className="flex flex-row justify-center sm:justify-start flex-wrap gap-2 mt-8">
             <TabButton
               selectTab={() => handleTabChange("skills")}
               active={tab === "skills"}

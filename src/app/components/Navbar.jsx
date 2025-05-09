@@ -25,26 +25,21 @@ const Navbar = () => {
           Dhruv Jain
         </Link>
 
-        <div className="mobile-menu block md:hidden">
-          {!navbarOpen ? (
-            <button
-              onClick={() => setNavbarOpen(true)}
-              className="text-white hover:text-blue-500 focus:outline-none"
-            >
-              <Bars3Icon className="h-7 w-7" />
-            </button>
-          ) : (
-            <button
-              onClick={() => setNavbarOpen(false)}
-              className="text-white hover:text-blue-500 focus:outline-none"
-            >
+        <div className="block md:hidden">
+          <button
+            onClick={() => setNavbarOpen(!navbarOpen)}
+            className="text-white hover:text-blue-500 focus:outline-none"
+          >
+            {navbarOpen ? (
               <XMarkIcon className="h-7 w-7" />
-            </button>
-          )}
+            ) : (
+              <Bars3Icon className="h-7 w-7" />
+            )}
+          </button>
         </div>
 
-        <div className="menu hidden md:block md:w-auto" id="navbar">
-          <ul className="flex p-4 md:p-0 md:flex-row md:space-x-8 mt-0">
+        <div className="hidden md:block">
+          <ul className="flex space-x-8 text-white font-medium text-lg">
             {navLinks.map((link, index) => (
               <li key={index}>
                 <NavLink href={link.path} title={link.title} />
@@ -54,40 +49,30 @@ const Navbar = () => {
         </div>
       </div>
 
-      {navbarOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-90 z-20 flex flex-col items-center justify-center transition-all duration-500 ease-in-out transform translate-x-0">
-          <div
-            className="absolute top-5 right-5 text-white cursor-pointer"
-            onClick={() => setNavbarOpen(false)}
-          >
-            <XMarkIcon className="h-8 w-8" />
-          </div>
-          <ul className="space-y-8 text-white text-3xl">
-            {navLinks.map((link, index) => (
-              <li key={index}>
-                <NavLink
-                  href={link.path}
-                  title={link.title}
-                  className="hover:text-blue-500 transition-all"
-                />
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-      <style jsx>{`
-        .transition-transform {
-          transition: transform 0.5s ease-in-out;
-        }
+      <div
+        className={`fixed inset-0 z-40 bg-black bg-opacity-90 transform transition-transform duration-300 ease-in-out ${
+          navbarOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <button
+          onClick={() => setNavbarOpen(false)}
+          className="absolute top-6 right-6 text-white hover:text-blue-500"
+        >
+          <XMarkIcon className="h-8 w-8" />
+        </button>
 
-        .transform {
-          transform: translateX(100%);
-        }
-
-        .translate-x-0 {
-          transform: translateX(0);
-        }
-      `}</style>
+        <ul className="flex flex-col items-center justify-center h-full gap-10 text-white text-2xl font-semibold">
+          {navLinks.map((link, index) => (
+            <li key={index}>
+              <NavLink
+                href={link.path}
+                title={link.title}
+                className="hover:text-blue-500 transition duration-300"
+              />
+            </li>
+          ))}
+        </ul>
+      </div>
     </nav>
   );
 };
