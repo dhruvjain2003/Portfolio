@@ -95,7 +95,7 @@ const AboutSection = () => {
         <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
           <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
           <p className="text-base lg:text-lg">
-            I’m a final-year Computer Science student and full-stack web developer passionate about building responsive and user-friendly applications. I specialize in JavaScript, React, and Node.js, and have worked on several academic and personal projects using PostgreSQL and MongoDB. I'm a fast learner, enjoy solving real-world problems, and love collaborating in team environments. Currently exploring cloud and DevOps to broaden my skillset.
+            I&apos;m a final-year Computer Science student and full-stack web developer passionate about building responsive and user-friendly applications. I specialize in JavaScript, React, and Node.js, and have worked on several academic and personal projects using PostgreSQL and MongoDB. I&apos;m a fast learner, enjoy solving real-world problems, and love collaborating in team environments. Currently exploring cloud and DevOps to broaden my skillset.
           </p>
 
           <div className="flex flex-row flex-wrap gap-2 justify-start mt-8">
