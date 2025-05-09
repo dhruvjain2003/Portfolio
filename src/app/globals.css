@@ -25,3 +25,18 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+
+.projects-scrollbar::-webkit-scrollbar {
+  height: 8px;
+}
+.projects-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.projects-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 10px;
+}
+.projects-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

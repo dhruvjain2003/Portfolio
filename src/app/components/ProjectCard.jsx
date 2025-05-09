@@ -2,7 +2,7 @@ import React from "react";
 import { CodeBracketIcon, EyeIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 
-const ProjectCard = ({ imgUrl, title, description, gitUrl, previewUrl }) => {
+const ProjectCard = ({ imgUrl, title, description, gitUrl, previewUrl,techStack }) => {
   return (
     <div>
       <div
@@ -27,6 +27,15 @@ const ProjectCard = ({ imgUrl, title, description, gitUrl, previewUrl }) => {
       <div className="text-white rounded-b-xl mt-3 bg-[#181818]py-6 px-4">
         <h5 className="text-xl font-semibold mb-2">{title}</h5>
         <p className="text-[#ADB7BE]">{description}</p>
+        {techStack && (
+          <div className="flex flex-wrap mt-2 gap-2">
+            {techStack.map((tech, idx) => (
+              <span key={idx} className="text-sm bg-gray-700 text-white px-2 py-1 rounded-full">
+                {tech}
+              </span>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
