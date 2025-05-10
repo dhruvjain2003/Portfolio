@@ -19,9 +19,9 @@ const Navbar = () => {
       <div className="flex container items-center justify-between mx-auto px-4 py-3 sm:py-4 lg:py-5">
         <Link
           href="/"
-          className="flex items-center gap-2 sm:gap-3 lg:gap-4 text-xl sm:text-3xl lg:text-4xl font-bold text-white hover:text-blue-500 transition"
+          className="flex items-center gap-2 sm:gap-3 lg:gap-4 text-xl sm:text-3xl lg:text-4xl font-bold text-white hover:text-indigo-500 transition"
         >
-          <FaCode />
+          <FaCode className="animate-pulse text-indigo-500 drop-shadow-md" />
           Dhruv Jain
         </Link>
 
@@ -50,7 +50,7 @@ const Navbar = () => {
       </div>
 
       <div
-        className={`fixed inset-0 z-40 bg-black bg-opacity-90 transform transition-transform duration-300 ease-in-out ${
+        className={`fixed inset-0 z-40 backdrop-blur-md bg-black/80 bg-opacity-90 transform transition-transform duration-300 ease-in-out ${
           navbarOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -61,7 +61,7 @@ const Navbar = () => {
           <XMarkIcon className="h-8 w-8" />
         </button>
 
-        <ul className="flex flex-col items-center justify-center h-full gap-10 text-white text-2xl font-semibold">
+        <ul className="flex flex-col items-center justify-center h-full gap-1 text-white text-2xl font-semibold">
           {navLinks.map((link, index) => (
             <li key={index}>
               <NavLink
