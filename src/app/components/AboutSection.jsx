@@ -90,10 +90,10 @@ const AboutSection = () => {
 
   return (
     <section className="text-white scroll-mt-20" id="about">
-      <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
+      <div className="md:grid md:grid-cols-2 gap-8 items-center pb-8 xl:gap-16 sm:py-16 xl:px-16">
         <Image src="/images/about-image.png" width={500} height={500} alt="About Image" />
         <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
-          <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
+          <h2 className="text-4xl font-bold text-white mb-4 text-center sm:text-start">About Me</h2>
           <p className="text-base lg:text-lg">
             I&apos;m a final-year Computer Science student and full-stack web developer passionate about building responsive and user-friendly applications. I specialize in JavaScript, React, and Node.js, and have worked on several academic and personal projects using PostgreSQL and MongoDB. I&apos;m a fast learner, enjoy solving real-world problems, and love collaborating in team environments. Currently exploring cloud and DevOps to broaden my skillset.
           </p>

@@ -2,6 +2,9 @@
 import React, { useState } from "react";
 import GithubIcon from "../../../public/github-icon.svg";
 import LinkedinIcon from "../../../public/linkedin-icon.svg";
+import GmailIcon from "../../../public/gmail.svg";
+import LeetCodeIcon from "../../../public/leetcode.svg";
+import WhatsappIcon from "../../../public/whatsapp.svg";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -23,14 +26,25 @@ const EmailSection = () => {
           open. Whether you have a question or just want to say hi, I&apos;ll
           try my best to get back to you!
         </p>
-        <div className="socials flex flex-row gap-2">
+
+        <div className="socials flex flex-row gap-4">
           <Link href="https://github.com/dhruvknowstocode">
-            <Image src={GithubIcon} alt="Github Icon" />
+            <Image src={GithubIcon} alt="Github Icon" width={30} height={30} />
           </Link>
           <Link href="https://www.linkedin.com/in/dhruv-jain-7000b6227/">
-            <Image src={LinkedinIcon} alt="Linkedin Icon" />
+            <Image src={LinkedinIcon} alt="Linkedin Icon" width={30} height={30} />
+          </Link>
+          <Link href="mailto:dhruvjain2424@gmail.com">
+            <Image src={GmailIcon} alt="Gmail Icon" width={30} height={30} />
+          </Link>
+          <Link href="https://leetcode.com/u/dhruvjain2424/">
+            <Image src={LeetCodeIcon} alt="LeetCode Icon" width={30} height={30} />
+          </Link>
+          <Link href="https://wa.me/918800210778">
+            <Image src={WhatsappIcon} alt="WhatsApp Icon" width={30} height={30} />
           </Link>
         </div>
+
       </div>
       <div>
         {emailSubmitted ? (
