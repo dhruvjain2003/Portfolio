@@ -7,6 +7,8 @@ import { FaCode } from "react-icons/fa";
 
 const navLinks = [
   { title: "About", path: "#about" },
+  { title: "Experience", path: "#experience" },
+  { title: "Certifications", path: "#certifications" },
   { title: "Projects", path: "#projects" },
   { title: "Contact", path: "#contact" },
 ];

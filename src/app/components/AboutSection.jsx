@@ -11,7 +11,7 @@ const TAB_DATA = [
       <ul className="list-disc pl-2">
         <li>JavaScript (ES6+), C, C++, Java</li>
         <li>React.js & Next.js</li>
-        <li>Node.js & Express.js</li>
+        <li>Node.js, GraphQL & Express.js</li>
         <li>PostgreSQL & MongoDB</li>
         <li>HTML5, CSS3, Tailwind CSS</li>
         <li>Git & GitHub</li>
@@ -94,10 +94,17 @@ const AboutSection = () => {
         <Image src="/images/about-image.png" width={500} height={500} alt="About Image" />
         <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
           <h2 className="text-4xl font-bold text-white mb-4 text-center sm:text-start">About Me</h2>
-          <p className="text-base lg:text-lg">
-            I&apos;m a final-year Computer Science student and full-stack web developer passionate about building responsive and user-friendly applications. I specialize in JavaScript, React, and Node.js, and have worked on several academic and personal projects using PostgreSQL and MongoDB. I&apos;m a fast learner, enjoy solving real-world problems, and love collaborating in team environments. Currently exploring cloud and DevOps to broaden my skillset.
+          <p className="text-base lg:text-lg text-[#ADB7BE] leading-relaxed">
+            I’m a <span className="text-white font-medium">Full-Stack Developer</span> currently working at 
+            <span className="text-white font-medium"> To The New</span>, where I build scalable web applications 
+            and backend systems. My primary focus is backend development using 
+            <span className="text-white font-medium"> Node.js, Express.js, and SQL</span>, while also working 
+            across the stack with <span className="text-white font-medium">React and JavaScript</span> to deliver 
+            end-to-end solutions.
+            <br /><br />
+            Beyond traditional development, I’m exploring <span className="text-white font-medium">AI-driven development</span>, 
+            including prompt engineering and integrating modern AI APIs into applications to create smarter user experiences.
           </p>
-
           <div className="flex flex-row justify-center sm:justify-start flex-wrap gap-2 mt-8">
             <TabButton
               selectTab={() => handleTabChange("skills")}
