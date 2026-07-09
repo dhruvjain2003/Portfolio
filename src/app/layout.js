@@ -12,6 +12,9 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
+  verification: {
+    google: "0Cl_IK5rJAPqWWDcQ46wquAZOL4xh6ZqGi6vQAFqUTc",
+  },
   title: {
     default: siteTitle,
     template: "%s | Dhruv Jain",
