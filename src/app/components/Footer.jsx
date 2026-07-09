@@ -3,14 +3,15 @@ import { FaCode } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="border-t border-[#33353F] text-white bg-[#121212]">
-      <div className="container mx-auto px-6 py-8 flex flex-col sm:flex-row justify-between items-center">
+    <footer className="border-t border-[#33353F] bg-[#121212] text-white">
+      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 py-8 sm:flex-row">
         <div className="flex items-center gap-2 text-lg font-semibold">
           <FaCode />
           Dhruv Jain
         </div>
-        <p className="text-sm text-gray-400 mt-4 sm:mt-0">
-          © {new Date().getFullYear()} All rights reserved.
+
+        <p className="text-sm text-gray-400">
+          © {new Date().getFullYear()} Dhruv Jain. All rights reserved.
         </p>
       </div>
     </footer>

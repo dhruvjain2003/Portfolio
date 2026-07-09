@@ -1,75 +1,87 @@
 "use client";
+
 import React from "react";
 import Image from "next/image";
-import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
 const HeroSection = () => {
   return (
-    <section className="lg:py-16">
-      <div className="grid grid-cols-1 sm:grid-cols-12">
+    <section className="py-12 lg:py-20">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="grid grid-cols-1 items-center gap-12 sm:grid-cols-12">
+        {/* Left Content */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-          className="col-span-8 place-self-center text-center sm:text-left justify-self-start"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="sm:col-span-8 text-center sm:text-left"
         >
-          <h1 className="text-white mb-4 text-4xl md:text-5xl lg:text-8xl lg:leading-normal font-extrabold">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-secondary-600">
-              Hello, I&apos;m{" "}
+          {/* Badge */}
+          <div className="mb-6 inline-flex items-center rounded-full border border-primary-500/20 bg-primary-500/10 px-4 py-2 text-sm font-medium text-primary-300">
+            🚀 Full Stack Software Engineer • 1+ Year Experience
+          </div>
+
+          {/* Heading */}
+          <h1 className="mb-6 text-4xl font-extrabold leading-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
+            <span className="bg-gradient-to-r from-primary-400 to-secondary-500 bg-clip-text text-transparent">
+              Hi, I&apos;m
             </span>
-            <br></br>
-            <TypeAnimation
-              sequence={[
-                "Dhruv Jain",
-                1000,
-                "Web Developer",
-                1000,
-                "Tech Builder",
-                1000,
-              ]}
-              wrapper="span"
-              speed={50}
-              repeat={Infinity}
-            />
+            <br />
+            Dhruv Jain
           </h1>
-          <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl">
-            I design and build modern web applications using technologies like Next.js, Node.js, and PostgreSQL.
+
+          {/* Description */}
+          <p className="max-w-2xl text-base leading-7 text-[#ADB7BE] sm:text-lg sm:leading-8 lg:text-xl">
+            Building end-to-end web applications with a focus on performance,
+            scalability, and user experience. Experienced in delivering production-ready features for a high-traffic sportsbook platform serving millions of users
           </p>
-          <div>
+
+          {/* Quick Stats */}
+          <div className="mt-8 flex flex-wrap justify-center gap-5 text-sm text-[#ADB7BE] sm:justify-start">
+            <span>💼 1+ Year Experience</span>
+            <span>🏆 Award Winner</span>
+            <span>📦 Open Source</span>
+            <span>🚀 Production Systems</span>
+          </div>
+
+          {/* CTA Buttons */}
+          <div className="mt-10 flex flex-col gap-4 sm:flex-row">
             <Link
               href="/#contact"
-              className="px-6 inline-block py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-primary-500 to-secondary-500 hover:bg-slate-200 text-white"
+              className="rounded-full bg-gradient-to-r from-primary-500 to-secondary-500 px-7 py-3 font-medium text-white transition-transform duration-300 hover:scale-105"
             >
-              Hire Me
+              Contact Me
             </Link>
+
             <a
-              href="/resume.pdf" download 
-              className="px-1 inline-block py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-primary-500 to-secondary-500 hover:bg-slate-800 text-white mt-3"
+              href="/resume.pdf"
+              download
+              className="rounded-full border border-primary-500 px-7 py-3 font-medium text-white transition-all duration-300 hover:bg-primary-500/10"
             >
-              <span className="block bg-[#121212] hover:bg-slate-800 rounded-full px-5 py-2">
-                Download CV
-              </span>
+              Download Resume
             </a>
           </div>
         </motion.div>
+
+        {/* Right Image */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.5 }}
+          initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-          className="col-span-4 place-self-center mt-4 lg:mt-0"
+          transition={{ duration: 0.6 }}
+          className="flex justify-center sm:col-span-4"
         >
-          <div className="rounded-full bg-[#181818] w-[250px] h-[250px] lg:w-[400px] lg:h-[400px] relative">
+          <div className="relative mx-auto h-[240px] w-[240px] rounded-full bg-gradient-to-br from-[#1d1d1d] to-[#111111] ring-1 ring-white/10 shadow-[0_0_60px_rgba(99,102,241,0.18)] sm:h-[300px] sm:w-[300px] lg:h-[400px] lg:w-[400px]">
             <Image
               src="/images/me.png"
-              alt="hero image"
-              className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-              width={500}
-              height={500}
+              alt="Dhruv Jain"
+              fill
+              className="rounded-full object-contain p-5"
+              priority
             />
           </div>
         </motion.div>
+      </div>
       </div>
     </section>
   );

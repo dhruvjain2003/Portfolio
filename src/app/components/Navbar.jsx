@@ -1,6 +1,7 @@
 "use client";
+
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import NavLink from "./NavLink";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import { FaCode } from "react-icons/fa";
@@ -8,74 +9,117 @@ import { FaCode } from "react-icons/fa";
 const navLinks = [
   { title: "About", path: "#about" },
   { title: "Experience", path: "#experience" },
-  { title: "Certifications", path: "#certifications" },
+  { title: "Awards", path: "#awards" },
   { title: "Projects", path: "#projects" },
+  { title: "Learning", path: "#certifications" },
   { title: "Contact", path: "#contact" },
 ];
 
 const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
 
+  const closeMenu = () => setNavbarOpen(false);
+
+  useEffect(() => {
+    document.body.style.overflow = navbarOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [navbarOpen]);
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#121212] bg-opacity-100">
-      <div className="flex container items-center justify-between mx-auto px-4 py-3 sm:py-4 lg:py-5">
-        <Link
-          href="/"
-          className="flex items-center gap-2 sm:gap-3 lg:gap-4 text-xl sm:text-3xl lg:text-4xl font-bold text-white hover:text-indigo-500 transition"
-        >
-          <FaCode className="animate-pulse text-indigo-500 drop-shadow-md" />
-          Dhruv Jain
-        </Link>
-
-        <div className="block md:hidden">
-          <button
-            onClick={() => setNavbarOpen(!navbarOpen)}
-            className="text-white hover:text-blue-500 focus:outline-none"
+    <>
+      <nav
+        className={`fixed inset-x-0 top-0 border-b backdrop-blur-xl transition-colors duration-300 ${
+          navbarOpen
+            ? "z-[70] border-transparent bg-[#121212]"
+            : "z-50 border-white/5 bg-[#121212]/95"
+        }`}
+      >
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+          <Link
+            href="/"
+            onClick={closeMenu}
+            className="flex items-center gap-3 text-2xl font-bold text-white transition-colors duration-300 hover:text-primary-400 md:text-3xl"
           >
-            {navbarOpen ? (
-              <XMarkIcon className="h-7 w-7" />
-            ) : (
-              <Bars3Icon className="h-7 w-7" />
-            )}
-          </button>
-        </div>
+            <FaCode className="text-primary-400 transition-transform duration-300 hover:rotate-12" />
+            <span>Dhruv Jain</span>
+          </Link>
 
-        <div className="hidden md:block">
-          <ul className="flex space-x-8 text-white font-medium text-lg">
-            {navLinks.map((link, index) => (
-              <li key={index}>
-                <NavLink href={link.path} title={link.title} />
+          <div className="hidden items-center gap-10 md:flex">
+            <ul className="flex items-center gap-8 text-lg font-medium text-white">
+              {navLinks.map((link) => (
+                <li key={link.title}>
+                  <NavLink href={link.path} title={link.title} />
+                </li>
+              ))}
+            </ul>
+
+            <a
+              href="/resume.pdf"
+              download
+              className="rounded-full border border-primary-500 px-5 py-2 text-sm font-medium text-white transition-all duration-300 hover:border-primary-400 hover:bg-primary-500/10"
+            >
+              Resume
+            </a>
+          </div>
+
+          {navbarOpen ? (
+            <button
+              type="button"
+              onClick={closeMenu}
+              aria-label="Close menu"
+              className="rounded-full border border-white/10 p-2 text-white transition hover:border-primary-500 hover:bg-primary-500/10 hover:text-primary-400 md:hidden"
+            >
+              <XMarkIcon className="h-7 w-7" />
+            </button>
+          ) : (
+            <button
+              type="button"
+              onClick={() => setNavbarOpen(true)}
+              aria-label="Open menu"
+              aria-expanded={false}
+              className="text-white transition hover:text-primary-400 md:hidden"
+            >
+              <Bars3Icon className="h-7 w-7" />
+            </button>
+          )}
+        </div>
+      </nav>
+
+      <div
+        className={`fixed inset-0 z-[60] bg-[#121212] transition-opacity duration-300 md:hidden ${
+          navbarOpen
+            ? "visible opacity-100"
+            : "invisible pointer-events-none opacity-0"
+        }`}
+        aria-hidden={!navbarOpen}
+      >
+        <div className="flex h-full flex-col items-center justify-center gap-8 px-6 pt-16">
+          <ul className="flex w-full max-w-sm flex-col items-center gap-6 text-2xl font-semibold text-white">
+            {navLinks.map((link) => (
+              <li key={link.title} className="w-full text-center">
+                <NavLink
+                  href={link.path}
+                  title={link.title}
+                  onNavigate={closeMenu}
+                  className="!p-0 text-2xl text-white transition-colors duration-300 hover:text-primary-400"
+                />
               </li>
             ))}
           </ul>
+
+          <a
+            href="/resume.pdf"
+            download
+            onClick={closeMenu}
+            className="rounded-full border border-primary-500 px-6 py-3 text-lg text-white transition-all duration-300 hover:bg-primary-500/10"
+          >
+            Download Resume
+          </a>
         </div>
       </div>
-
-      <div
-        className={`fixed inset-0 z-40 backdrop-blur-md bg-black/80 bg-opacity-90 transform transition-transform duration-300 ease-in-out ${
-          navbarOpen ? "translate-x-0" : "translate-x-full"
-        }`}
-      >
-        <button
-          onClick={() => setNavbarOpen(false)}
-          className="absolute top-6 right-6 text-white hover:text-blue-500"
-        >
-          <XMarkIcon className="h-8 w-8" />
-        </button>
-
-        <ul className="flex flex-col items-center justify-center h-full gap-1 text-white text-2xl font-semibold">
-          {navLinks.map((link, index) => (
-            <li key={index}>
-              <NavLink
-                href={link.path}
-                title={link.title}
-                className="hover:text-blue-500 transition duration-300"
-              />
-            </li>
-          ))}
-        </ul>
-      </div>
-    </nav>
+    </>
   );
 };
 
