@@ -100,7 +100,7 @@ const EmailSection = () => {
             <p className="mb-6 max-w-md text-base leading-7 text-[#ADB7BE] sm:text-lg sm:leading-8">
               I&apos;m open to full-stack and backend roles and happy to hear
               from recruiters, hiring managers, or fellow developers. Based in
-              Noida, India, and open to remote opportunities — feel free to reach
+              Delhi, India, and open to remote opportunities — feel free to reach
               out anytime.
             </p>
 

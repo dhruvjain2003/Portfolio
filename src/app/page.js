@@ -5,6 +5,7 @@ import ExperienceSection from "./components/ExperienceSection";
 import AwardsSection from "./components/AwardsSection";
 import CertificationSection from "./components/CertificationSection";
 import ProjectsSection from "./components/ProjectsSection";
+import TechnicalWritingSection from "./components/TechnicalWritingSection";
 import EmailSection from "./components/EmailSection";
 import Footer from "./components/Footer";
 import AchievementsSection from "./components/AchievementsSection";
@@ -21,6 +22,7 @@ export default function Home() {
         <AwardsSection />
         <CertificationSection />
         <ProjectsSection />
+        <TechnicalWritingSection />
         <EmailSection />
       </div>
       <Footer />
